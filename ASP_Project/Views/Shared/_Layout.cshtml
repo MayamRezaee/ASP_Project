@@ -6,8 +6,14 @@
     <title>@ViewBag.Title</title>
 </head>
 <body>
+    <header>
+        <div>@Html.ActionLink("About", "About", "Home")</div>
+        <div>@Html.ActionLink("Contact", "Contact", "Home")</div>
+        <div>@Html.ActionLink("Projects", "Projects", "Home")</div>
+    </header>
     <div>
         @RenderBody()
     </div>
+    <footer> @DateTime.Now.ToShortDateString() <br>Maryam Rezaee</footer>
 </body>
 </html>
