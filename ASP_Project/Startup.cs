@@ -36,6 +36,10 @@ namespace ASP_Project
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}"
                     );
+                endpoints.MapControllerRoute(
+                    name: "CheckTemperature",
+                    pattern: "FeverCheck", 
+                    defaults: new { controller = "Doctor", action = "CheckTemperature" });
             });
         }
     }
