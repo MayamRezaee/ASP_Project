@@ -17,6 +17,8 @@ namespace ASP_Project
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddHttpContextAccessor();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -29,6 +31,7 @@ namespace ASP_Project
 
             app.UseStaticFiles();
             app.UseRouting();
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {
@@ -36,10 +39,17 @@ namespace ASP_Project
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}"
                     );
+                //Fever Check Rout
                 endpoints.MapControllerRoute(
                     name: "CheckTemperature",
                     pattern: "FeverCheck", 
                     defaults: new { controller = "Doctor", action = "CheckTemperature" });
+                
+                // Guessing Game Route
+                endpoints.MapControllerRoute(
+                    name: "GuessingGame",
+                    pattern: "GuessingGame",
+                    defaults: new { controller = "Guessinggame", action = "GuessingGame" });
             });
         }
     }

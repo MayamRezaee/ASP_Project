@@ -9,20 +9,17 @@ namespace ASP_Project.Controllers
 {
     public class DoctorController : Controller
     {
-       /* public IActionResult Index()
-        {
-            return View();
-        }*/
 
         public IActionResult CheckTemperature()
         {
             return View();
         }
 
+        //Check Temperature 
         [HttpPost]
         public IActionResult CheckTemperature(int temp)
         {
-            //ViewBag.Message = "Your body temperature is, " + temp + " degrees Celsius"; 
+            
             ViewBag.Message = Models.DoctorModel.CheckTemp(temp);
             return View();
 
